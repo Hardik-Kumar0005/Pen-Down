@@ -1,0 +1,13 @@
+"use client"
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+export default function Canvas() {
+
+    const scene = new THREE.Scene();
+  
+    const gltfLoader = new GLTFLoader();
+    gltfLoader.load("/3dMode/scene.gltf", (gltfScene) => {
+      scene.add(gltfScene.scene)
+    });
+}

@@ -32,14 +32,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
         >
         {children}
-        <div className="absolute top-5 left-5 text-amber-400">
+        <div className="absolute top-3 left-5 text-amber-400">
           <Link href="/">
             <Image 
             src="/logo.png"
             alt="Logo"
             width={80}
             height={80}
-            />
+            /> 
+            <span className="text-xl self-center font-thin text-white">Pen Down</span>
           </Link>
         </div>
         <div className="absolute top-5 right-5 text-black">

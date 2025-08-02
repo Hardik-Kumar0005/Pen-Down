@@ -22,7 +22,7 @@ export async function middleware(request: NextRequest) {
       await jwtVerify(token, secret);
 
       // If token is valid and user is on login/signup, redirect to dashboard
-      if (pathname.startsWith('/login') || pathname.startsWith('/signup')) {
+      if (pathname.startsWith('/login') || pathname.startsWith('/signup') || pathname === '/') {
         return NextResponse.redirect(new URL('/dashboard', request.url));
       }
     } catch (error) {
@@ -42,5 +42,10 @@ export async function middleware(request: NextRequest) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/dashboard/:path*', '/login', '/signup'],
+  matcher: [
+    '/',
+    '/dashboard/:path*',
+    '/login',
+    '/signup'
+  ],
 };

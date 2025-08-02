@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 export default function LoginPage() {
 
@@ -48,15 +49,17 @@ export default function LoginPage() {
     }
 
     return (
-    <main className="grid grid-cols-1 md:grid-cols-2 h-screen w-full bg-[url('/loginbg.jpg')] bg-cover bg-center bg-no-repeat">
+    <main className="grid grid-cols-1 md:grid-cols-2 h-screen w-full bg-[url('/dashboardBg.jpg')] bg-cover bg-center bg-no-repeat">
+      
         
       {/* Left Column: Image */}
       <div className="hidden md:flex items-center justify-center p-8">
         <Image
-          src="/login.png" // Make sure to have a 'login.png' in your /public folder
+          src="/login.png" 
           alt="Login Illustration"
-          width={600}
-          height={600}
+          className=""
+          width={700}
+          height={700}
           priority
         
            />
@@ -64,7 +67,13 @@ export default function LoginPage() {
 
       {/* Right Column: Form */}
       <div className="flex flex-col justify-center items-center p-5">
-        <div className="w-full max-w-md p-8 space-y-6 bg-zinc-900/50 rounded-2xl border border-zinc-700">
+        <div className="mb-8">
+          <h1 className="text-7xl font-bold text-white">Pen Down</h1>
+          <p className="text-sm text-zinc-400">
+            Your one-stop solution for managing tasks efficiently.
+          </p>
+        </div>
+        <div className="w-full max-w-md p-8 space-y-6 bg-zinc-900/50 rounded-2xl border border-cyan-500">
           <h1 className="text-3xl font-bold text-center text-white">
             Welcome Back
           </h1>
