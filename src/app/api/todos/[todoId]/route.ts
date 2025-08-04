@@ -1,4 +1,3 @@
-// src/app/api/todos/[todoId]/route.ts
 import {prisma} from '@/lib/prisma';
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
@@ -67,7 +66,7 @@ export async function PATCH(
 }
 
 
-// DELETE handler to delete a todo
+// DELETE TODO
 export async function DELETE(
   request: Request,
   { params }: { params: { todoId: string } }

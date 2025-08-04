@@ -64,7 +64,7 @@ gsap.from(h3.chars, {
     <div>
       <h1 className={`text-4xl sm:text-9xl font-bold mb-4 ${luckiestGuy.className}`}>Pen Down</h1>
       <h3 className={`text-lg sm:text-xl mb-8 ${bitcount.className}`}>Track and keep up with your todos from anywhere!</h3>
-      <Link href="/login"
+      <Link href="/dashboard"
         className="px-6 py-3 bg-cyan-600 text-black font-bold rounded-lg hover:bg-cyan-500 transition-colors text-[clamp(1.2)]"
       >
         <span className={`text-2xl ${luckiestGuy.className}`}>🖊️Start Now !</span>

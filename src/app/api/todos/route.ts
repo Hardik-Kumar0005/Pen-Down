@@ -1,4 +1,3 @@
-// src/app/api/todos/route.ts
 import {prisma} from '@/lib/prisma';
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
@@ -10,7 +9,7 @@ const todoSchema = z.object({
   content: z.string().min(1, 'content is required').max(255),
 });
 
-// Helper type for the decoded token payload
+// DEFINING TYPE
 interface UserPayload {
   userId: number;
 }
@@ -18,7 +17,7 @@ interface UserPayload {
 // Create Todo
 export async function POST(request: Request) {
   try {
-    // 1. Get user ID from the token
+    // 1. Get user ID FROM TOKEN
     const cookieStore = await cookies();
     const token = cookieStore.get('token')?.value;prisma
 
@@ -29,7 +28,7 @@ export async function POST(request: Request) {
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as UserPayload;
     const userId = decoded.userId;
 
-    // 2. Validate request body
+    // 2. VALIDATION
     const body = await request.json();
     const validation = todoSchema.safeParse(body);
 

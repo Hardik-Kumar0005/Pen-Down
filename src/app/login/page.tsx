@@ -2,10 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { prisma } from '@/lib/prisma';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Suspense } from 'react';
 
 export default function LoginPage() {
 
@@ -52,7 +50,7 @@ export default function LoginPage() {
     <main className="grid grid-cols-1 md:grid-cols-2 h-screen w-full bg-[url('/dashboardBg.jpg')] bg-cover bg-center bg-no-repeat">
       
         
-      {/* Left Column: Image */}
+      {/* Left Column Image */}
       <div className="hidden md:flex items-center justify-center p-8">
         <Image
           src="/login.png" 
@@ -65,7 +63,7 @@ export default function LoginPage() {
            />
       </div>
 
-      {/* Right Column: Form */}
+      {/* Right Column Form */}
       <div className="flex flex-col justify-center items-center p-5">
         <div className="mb-8">
           <h1 className="text-7xl font-bold text-white">Pen Down</h1>

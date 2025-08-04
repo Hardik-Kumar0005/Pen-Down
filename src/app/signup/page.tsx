@@ -25,7 +25,6 @@ export default function SignUpPage() {
         }
 
         try {
-            // Send the registration data to the signup API endpoint
             const res = await fetch("/api/auth/signup", {
                 method: "POST",
                 headers: {
@@ -39,28 +38,25 @@ export default function SignUpPage() {
             });
 
             if (res.ok) {
-                // If signup is successful, reset the form and redirect to the login page
                 const form = e.target as HTMLFormElement;
                 form.reset();
                 router.push("/login"); 
             } else {
-                // If there's an error, parse the response and display the message
                 const data = await res.json();
                 setError(data.message || "Something went wrong.");
             }
         } catch (error) {
             setError("Error, try again");
-            console.error("Signup Error", error);
         }
     };
 
     return (
         <main className="grid grid-cols-1 md:grid-cols-2 h-screen w-full bg-[url('/dashboardBg.jpg')] bg-cover bg-center bg-no-repeat">
             
-            {/* Left Column: Image (same as login page) */}
+            {/* Left Column */}
             <div className="hidden md:flex items-center justify-center p-8">
                 <Image
-                    src="/signup.png" // Using the same illustration for consistency
+                    src="/signup.png"
                     alt="Signup Illustration"
                     className=""
                     width={700}
@@ -69,7 +65,7 @@ export default function SignUpPage() {
                 />
             </div>
 
-            {/* Right Column: Form */}
+            {/* Right Column */}
             <div className="flex flex-col justify-center items-center p-5">
                 <div className="mb-8">
           <h1 className="text-7xl font-bold text-white">Pen Down</h1>

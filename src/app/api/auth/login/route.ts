@@ -1,4 +1,3 @@
-// src/app/api/auth/login/route.ts
 import {prisma} from '@/lib/prisma';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -14,7 +13,6 @@ const loginSchema = z.object({
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-        console.log('Login attempt with:', body.identifier); // 1. Log the attempt
     
     // 1. Validate request body against the schema
     const validation = loginSchema.safeParse(body);
@@ -38,7 +36,6 @@ export async function POST(request: Request) {
     });
 
     if (!user) {
-            console.log('User not found.'); // 2. Log if user doesn't exist
       // Use a generic error message for security
       return NextResponse.json(
         { success: false, error: 'Invalid email or password' },
@@ -46,7 +43,6 @@ export async function POST(request: Request) {
       );
     }
 
-      console.log('User found:', user.username); // 3. Log the found user
     // 3. Compare the provided password with the stored hash
     const passwordsMatch = await bcrypt.compare(password, user.password);
 
@@ -58,7 +54,7 @@ export async function POST(request: Request) {
     }
 
           console.log('Login successful for:', user.username);
-    // 4. Create a JWT if c`red`entials are valid
+    // 4. Create a JWT if credentials are valid
     const token = jwt.sign(
       { userId: user.id, email: user.email, username: user.username },
       process.env.JWT_SECRET!,
