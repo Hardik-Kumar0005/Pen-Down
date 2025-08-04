@@ -21,6 +21,11 @@ pipeline {
             steps {
                 echo "Installing dependencies and running tests."
                 sh 'npm install'
+                
+                // Debugging jest.config.ts
+                echo 'Verifying content of jest.config.ts:'
+                sh 'cat jest.config.ts'
+
                 sh 'npm test'
             }
         }
