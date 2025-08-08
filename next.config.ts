@@ -6,6 +6,7 @@ module.exports = withTM()
 const nextConfig: NextConfig = {
   /* config options here */
   transpilePackages: ['three'],
+  
   output: 'standalone',
   
 

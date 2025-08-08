@@ -7,8 +7,9 @@ const luckiestGuy = Luckiest_Guy({
   variable: '--font-luckiest-guy',
 });
 
-import { Bitcount_Grid_Double } from 'next/font/google';
-const bitcount = Bitcount_Grid_Double({
+import { Roboto } from 'next/font/google';
+const bitcount = Roboto({
+  subsets: ['latin'],
   weight: '400',
   variable: '--font-bitcount',
 });
@@ -60,7 +61,7 @@ gsap.from(h3.chars, {
   return (
     <>
 
-    <div className="font-sans grid grid-cols-2 p-8 pb-20 gap-16 sm:p-20 text-amber-200 place-items-center h-screen bg-[url('/blurbg.png')] bg-cover bg-center">
+    <div className="font-sans grid grid-cols-2 p-8 pb-20 gap-16 sm:p-20 text-amber-200 place-items-center h-screen bg-[url('/dashboardBg.jpg')] bg-cover bg-center">
     <div>
       <h1 className={`text-4xl sm:text-9xl font-bold mb-4 ${luckiestGuy.className}`}>Pen Down</h1>
       <h3 className={`text-lg sm:text-xl mb-8 ${bitcount.className}`}>Track and keep up with your todos from anywhere!</h3>
