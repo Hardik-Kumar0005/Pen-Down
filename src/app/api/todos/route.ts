@@ -17,9 +17,9 @@ interface UserPayload {
 // Create Todo
 export async function POST(request: Request) {
   try {
-    // 1. Get user ID FROM TOKEN
+    // 1. Get user ID from the token
     const cookieStore = await cookies();
-    const token = cookieStore.get('token')?.value;prisma
+    const token = cookieStore.get('token')?.value;
 
     if (!token) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -60,7 +60,7 @@ export async function POST(request: Request) {
 
 
 // Fetch Todos
-export async function GET(request: Request) {
+export async function GET() {
   try {
     // 1. Get user from the token
     const cookieStore = await cookies();

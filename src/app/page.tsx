@@ -25,7 +25,6 @@ import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(SplitText);
 
-import Image from "next/image";
 import Link from "next/link";
 
 
@@ -37,7 +36,7 @@ export default function Home() {
     
 
 
-let h1 = SplitText.create("h1", { type: "words, chars" });
+const h1 = SplitText.create("h1", { type: "words, chars" });
 gsap.from(h1.chars, {
   duration: 0.2, 
   x: -100, // animate from 100px to the right  
@@ -46,7 +45,7 @@ gsap.from(h1.chars, {
 });
 
 
-let h3 = SplitText.create("h3", { type: "words, chars" });
+const h3 = SplitText.create("h3", { type: "words, chars" });
 gsap.from(h3.chars, {
   duration: 0.7, 
        // animate from 100px below

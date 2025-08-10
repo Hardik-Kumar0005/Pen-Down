@@ -45,7 +45,7 @@ export default function SignUpPage() {
                 const data = await res.json();
                 setError(data.message || "Something went wrong.");
             }
-        } catch (error) {
+        } catch {
             setError("Error, try again");
         }
     };

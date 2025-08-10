@@ -41,8 +41,9 @@ async function getUserAndTodo(request: Request, todoId: string) {
 // PATCH handler to update a todo (e.g., mark as complete)
 export async function PATCH(
   request: Request,
-  { params }: { params: { todoId: string } }
+  context: { params: Promise<{ todoId: string }> }
 ) {
+  const params = await context.params;
   const { todo, error, status } = await getUserAndTodo(request, params.todoId);
   if (error || !todo) {
     return NextResponse.json({ error }, { status });
@@ -66,11 +67,12 @@ export async function PATCH(
 }
 
 
-// DELETE TODO
+// DELETE handler to delete a todo
 export async function DELETE(
   request: Request,
-  { params }: { params: { todoId: string } }
+  context: { params: Promise<{ todoId: string }> }
 ) {
+  const params = await context.params;
   const { todo, error, status } = await getUserAndTodo(request, params.todoId);
   if (error || !todo) {
     return NextResponse.json({ error }, { status });

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
-import { useRouter } from 'next/navigation'; 
 import { Todo } from '@prisma/client';
 import LogoutButton from './LogoutButton';
 
@@ -11,7 +10,6 @@ export default function TodoManager({ initialTodos }: { initialTodos: Todo[] }) 
   const [editingTodoId, setEditingTodoId] = useState<number | null>(null);
   const [editingText, setEditingText] = useState('');
   const [error, setError] = useState('');
-  const router = useRouter(); 
   const editInputRef = useRef<HTMLInputElement>(null);
 
   // Focus the input when editing starts

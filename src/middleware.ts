@@ -23,7 +23,7 @@ export async function middleware(request: NextRequest) {
       if (pathname.startsWith('/login') || pathname.startsWith('/signup')) {
         return NextResponse.redirect(new URL('/dashboard', request.url));
       }
-    } catch (error) {
+    } catch {
       // Token verification failed (e.g., expired, invalid)
       
       // Redirect to login page and clear the invalid cookie
