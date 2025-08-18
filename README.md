@@ -2,9 +2,8 @@
 <div align="center">
 	<img src="public/logo.png" alt="Pen Down Logo" width="120" />
   
-	<h1>📝 Pen Down</h1>
-	<h3>A modern Todo List App with user authentication 🚀</h3>
-	<br/>
+# 📝 Pen Down
+### A modern Todo List App with user authentication 🚀
 </div>
 
 
